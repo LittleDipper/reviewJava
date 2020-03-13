@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+	<!-- 配置基本扫描  使用注解配置 -->
+	<context:component-scan base-package="spring_aop_7"></context:component-scan>
+	
+	<!-- 读取连接数据库的配置 -->
+	<context:property-placeholder location="classpath:spring_aop_7/db.properties"/>
+	
+	<!-- 配置数据库连接池  -->
+	<bean name="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="jdbcUrl" value="${jdbc.jdbcUrl}"></property>
+		<property name="driverClass" value="${jdbc.driverClass}"></property>
+		<property name="user" value="${jdbc.user}"></property>
+		<property name="password" value="${jdbc.password}"></property>
+	</bean>
+	
+	<!-- 给业务层增加事务的操作 -->
+	<!-- 事务核心管理器,封装了所有事务操作. 依赖于连接池 -->
+	<bean name="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	
+	<!-- Dao -->
+	<bean name="accountDao" class="spring_aop_7.dao.impl.AccountDaoImpl">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+</beans>

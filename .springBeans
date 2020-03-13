@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beansProjectDescription>
+	<version>1</version>
+	<pluginVersion><![CDATA[3.7.3.201602250914-RELEASE]]></pluginVersion>
+	<configSuffixes>
+		<configSuffix><![CDATA[xml]]></configSuffix>
+	</configSuffixes>
+	<enableImports><![CDATA[false]]></enableImports>
+	<configs>
+		<config>src/spring_aop_2/applicationContext.xml</config>
+		<config>src/spring_aop_3/applicationContext.xml</config>
+		<config>src/spring_aop_4/applicationContext.xml</config>
+		<config>src/spring_aop_5/applicationContext.xml</config>
+		<config>src/spring_aop_6/applicationContext.xml</config>
+	</configs>
+	<autoconfigs>
+	</autoconfigs>
+	<configSets>
+	</configSets>
+</beansProjectDescription>

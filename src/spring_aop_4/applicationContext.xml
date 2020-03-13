@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+	
+	<!-- 配置基本扫描  使用注解配置 -->
+	<context:component-scan base-package="spring_aop_4"></context:component-scan>
+	
+	<!-- 开启使用注解完织入 -->
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+	
+	<!-- 配置通知对象 已经使用注解配置了，不用在这里配置了-->
+	<!-- <bean name="myAdvice" class="spring_aop_4.advice.MyAdvice"></bean> -->
+
+	<!-- 配置目标对象  已经使用注解配置了，不用在这里配置了-->
+	<!-- <bean name="userService" class="spring_aop_4.service.impl.UserServiceImpl"></bean> -->
+	
+</beans>
